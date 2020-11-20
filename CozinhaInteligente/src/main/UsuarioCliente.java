@@ -1,5 +1,5 @@
 package main;
 
-public class UsuarioCliente {
+public class UsuarioCliente extends Usuario {
 
 }

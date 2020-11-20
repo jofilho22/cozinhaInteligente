@@ -1,5 +1,7 @@
 package main;
 
-public class UsuarioAdministrador {
+import service.IncluirDados;
+
+public class UsuarioAdministrador implements IncluirDados {
 
 }
