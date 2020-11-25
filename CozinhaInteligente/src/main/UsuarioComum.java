@@ -1,5 +1,5 @@
 package main;
 
-public class UsuarioComum extends Usuario{
+public class UsuarioComum {
 
 }

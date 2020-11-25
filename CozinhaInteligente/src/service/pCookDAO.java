@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 import database.Conexao;
 import main.Receita;
-import model.Produto;
+import main.Produto;
 
 public class pCookDAO {
 
@@ -81,7 +81,7 @@ public class pCookDAO {
 		sql = "delete from receitas where id_receita = ?";
 		try {
 			conexao.getConnection();
-			conexao.st = conexao.con.prepareStatement(sql)
+			conexao.st = conexao.con.prepareStatement(sql);
 			conexao.st.setInt(1, idReceita);
 			conexao.st.executeUpdate();
 			
