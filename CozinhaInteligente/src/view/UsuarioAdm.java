@@ -4,9 +4,22 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import database.Conexao;
+import main.Perfil;
+import service.PCookDAO;
+import service.pCookDAO;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -22,6 +35,9 @@ public class UsuarioAdm {
 	private JPasswordField passwordField;
 	private JPasswordField passwordField_1;
 	private JTextField textField_3;
+	private PCookDAO dao;
+	private Perfil p;
+	private Conexao bd;
 
 	/**
 	 * Launch the application.
@@ -43,6 +59,9 @@ public class UsuarioAdm {
 	 * Create the application.
 	 */
 	public UsuarioAdm() {
+		dao = new PCookDAO();
+		p = new Perfil();
+		bd = new Conexao();
 		initialize();
 	}
 
@@ -102,6 +121,15 @@ public class UsuarioAdm {
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.setBounds(30, 335, 81, 23);
 		frmPraticalCook.getContentPane().add(btnEditar);
+		btnEditar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerfomed(ActionEvent arg0) {
+				p.setNome(textField.getText());
+				p.setSobrenome(textField_1.getText());
+				p.setCpf(textField_2.getText());
+				JOptionPane.ShowMessageDialog(btnEditar, dao.Editar(p);
+			}
+		});
 		
 		textField = new JTextField();
 		textField.setEditable(false);

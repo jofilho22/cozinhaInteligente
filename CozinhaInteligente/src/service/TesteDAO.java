@@ -11,7 +11,7 @@ public class TesteDAO {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		pCookDAO dao = new pCookDAO();
+		PCookDAO dao = new PCookDAO();
 		Receita r = new Receita(2,"doideira", "nadamsm", "merda", 15, 166);
 		Anuncio a = new Anuncio(1,"nada","testando","teste");
 		Feedback f = new Feedback(1,"dusadhusauhd",2,6);

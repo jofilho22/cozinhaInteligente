@@ -12,12 +12,12 @@ import main.Perfil;
 import main.Receita;
 
 
-public class pCookDAO {
+public class PCookDAO {
 
 	private String sql,men;
 	private Conexao conexao;
 	
-	public pCookDAO() {
+	public PCookDAO() {
 		conexao = new Conexao();
 	}
 	
