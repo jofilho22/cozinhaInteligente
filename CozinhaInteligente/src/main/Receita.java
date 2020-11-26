@@ -9,12 +9,10 @@ public class Receita {
 	private int quantidadeIngrediente;
 	private float valorCalorico;
 	
-	public Receita() {
-		
-	}
 	
 	public Receita(int idReceita,String nome, String categoria, String ingrediente, int quantidadeIngrediente, float valorCalorico) {
 		super();
+		this.idReceita = idReceita;
 		this.nome = nome;
 		this.categoria = categoria;
 		this.ingrediente = ingrediente;
