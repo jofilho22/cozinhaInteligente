@@ -29,15 +29,15 @@ import javax.swing.JPasswordField;
 public class UsuarioAdm {
 
 	private JFrame frmPraticalCook;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JPasswordField passwordField;
-	private JPasswordField passwordField_1;
-	private JTextField textField_3;
+	private JTextField txtNome;
+	private JTextField txtEndereco;
 	private PCookDAO dao;
 	private Perfil p;
 	private Conexao bd;
+	private JTextField txtEmail;
+	private JTextField txtSenha;
+	private JTextField txtId;
+	private JTextField txtConsultar;
 
 	/**
 	 * Launch the application.
@@ -80,7 +80,7 @@ public class UsuarioAdm {
 		menuBar.setBounds(0, 0, 784, 28);
 		frmPraticalCook.getContentPane().add(menuBar);
 		
-		JMenuItem mntmMenu = new JMenuItem("Menu");
+		JMenuItem mntmMenu = new JMenuItem("Consultar receitas");
 		mntmMenu.setHorizontalAlignment(SwingConstants.CENTER);
 		menuBar.add(mntmMenu);
 		
@@ -94,93 +94,147 @@ public class UsuarioAdm {
 		JMenuItem mntmCadastro = new JMenuItem("Cadastro");
 		menuBar.add(mntmCadastro);
 		
-		JLabel lblInfoPerfil = new JLabel("Informa\u00E7\u00F5es do perfil:");
-		lblInfoPerfil.setBounds(33, 51, 135, 14);
-		frmPraticalCook.getContentPane().add(lblInfoPerfil);
+		JLabel lbID = new JLabel("ID:");
+		lbID.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lbID.setBounds(33, 165, 135, 14);
+		frmPraticalCook.getContentPane().add(lbID);
 		
-		JLabel lblPerfil_Nome = new JLabel("Nome");
-		lblPerfil_Nome.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblPerfil_Nome.setBounds(30, 91, 46, 14);
-		frmPraticalCook.getContentPane().add(lblPerfil_Nome);
-		
-		JLabel lblPerfil_Email = new JLabel("E-mail");
-		lblPerfil_Email.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblPerfil_Email.setBounds(30, 207, 46, 14);
-		frmPraticalCook.getContentPane().add(lblPerfil_Email);
-		
-		JLabel lblPerfil_Senha = new JLabel("Senha");
-		lblPerfil_Senha.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblPerfil_Senha.setBounds(30, 247, 46, 14);
-		frmPraticalCook.getContentPane().add(lblPerfil_Senha);
-		
-		JLabel lblPerfil_Confirmacao = new JLabel("Confirme \r\nsua senha");
-		lblPerfil_Confirmacao.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblPerfil_Confirmacao.setBounds(30, 287, 106, 14);
-		frmPraticalCook.getContentPane().add(lblPerfil_Confirmacao);
+		JLabel lbNome = new JLabel("Nome");
+		lbNome.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lbNome.setBounds(33, 210, 46, 14);
+		frmPraticalCook.getContentPane().add(lbNome);
 		
 		JButton btnEditar = new JButton("Editar");
-		btnEditar.setBounds(30, 335, 81, 23);
-		frmPraticalCook.getContentPane().add(btnEditar);
 		btnEditar.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerfomed(ActionEvent arg0) {
-				p.setNome(textField.getText());
-				p.setSobrenome(textField_1.getText());
-				p.setCpf(textField_2.getText());
-				JOptionPane.ShowMessageDialog(btnEditar, dao.Editar(p);
+			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
 		
-		textField = new JTextField();
-		textField.setEditable(false);
-		textField.setColumns(10);
-		textField.setBounds(150, 89, 202, 20);
-		frmPraticalCook.getContentPane().add(textField);
+		btnEditar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {				
+				p.setidPerfil(Integer.parseInt(txtId.getText()));
+				p.setNome(txtNome.getText());
+				p.setEmail(txtEmail.getText());
+				p.setEndereco(txtEndereco.getText());
+				p.setSenha(txtSenha.getText());
+				dao.editarPerfilComum(p);			
+			}
+		});
 		
-		textField_1 = new JTextField();
-		textField_1.setEditable(false);
-		textField_1.setColumns(10);
-		textField_1.setBounds(150, 205, 202, 20);
-		frmPraticalCook.getContentPane().add(textField_1);
+		btnEditar.setBounds(147, 421, 81, 23);
+		frmPraticalCook.getContentPane().add(btnEditar);
+				
+		txtNome = new JTextField();
+		txtNome.setColumns(10);
+		txtNome.setBounds(150, 207, 202, 20);
+		frmPraticalCook.getContentPane().add(txtNome);
 		
-		textField_2 = new JTextField();
-		textField_2.setEditable(false);
-		textField_2.setColumns(10);
-		textField_2.setBounds(150, 127, 202, 20);
-		frmPraticalCook.getContentPane().add(textField_2);
-		
-		JLabel lblCadastro_Sobrenome = new JLabel("Sobrenome");
-		lblCadastro_Sobrenome.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblCadastro_Sobrenome.setBounds(30, 127, 69, 14);
-		frmPraticalCook.getContentPane().add(lblCadastro_Sobrenome);
-		
-		passwordField = new JPasswordField();
-		passwordField.setEditable(false);
-		passwordField.setBounds(150, 245, 202, 20);
-		frmPraticalCook.getContentPane().add(passwordField);
-		
-		passwordField_1 = new JPasswordField();
-		passwordField_1.setEditable(false);
-		passwordField_1.setBounds(146, 285, 206, 20);
-		frmPraticalCook.getContentPane().add(passwordField_1);
-		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(121, 335, 89, 23);
-		frmPraticalCook.getContentPane().add(btnCancelar);
 		
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(220, 335, 89, 23);
+		btnSalvar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				p.setidPerfil(Integer.parseInt(txtId.getText()));
+				p.setNome(txtNome.getText());
+				p.setSenha(txtSenha.getText());
+				p.setEndereco(txtEndereco.getText());
+				p.setEmail(txtEmail.getText());
+				dao.cadastrarPerfil(p);
+				limpar();
+			}
+		});
+
+		btnSalvar.setBounds(33, 421, 89, 23);
 		frmPraticalCook.getContentPane().add(btnSalvar);
 		
-		JLabel lblCPF = new JLabel("CPF");
-		lblCPF.setBounds(30, 170, 46, 14);
-		frmPraticalCook.getContentPane().add(lblCPF);
+		JLabel lbEmail = new JLabel("E-mail");
+		lbEmail.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lbEmail.setBounds(33, 256, 46, 14);
+		frmPraticalCook.getContentPane().add(lbEmail);
 		
-		textField_3 = new JTextField();
-		textField_3.setEditable(false);
-		textField_3.setBounds(150, 167, 202, 20);
-		frmPraticalCook.getContentPane().add(textField_3);
-		textField_3.setColumns(10);
-	}
+		txtEndereco = new JTextField();
+		txtEndereco.setBounds(150, 341, 202, 20);
+		frmPraticalCook.getContentPane().add(txtEndereco);
+		txtEndereco.setColumns(10);
+		
+		txtEmail = new JTextField();
+		txtEmail.setColumns(10);
+		txtEmail.setBounds(150, 253, 202, 20);
+		frmPraticalCook.getContentPane().add(txtEmail);
+		
+		JLabel lblEndereo = new JLabel("Endere\u00E7o");
+		lblEndereo.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblEndereo.setBounds(33, 344, 77, 14);
+		frmPraticalCook.getContentPane().add(lblEndereo);
+		
+		txtSenha = new JTextField();
+		txtSenha.setColumns(10);
+		txtSenha.setBounds(150, 294, 202, 20);
+		frmPraticalCook.getContentPane().add(txtSenha);
+		
+		JLabel lblSenha = new JLabel("Senha");
+		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblSenha.setBounds(33, 296, 46, 17);
+		frmPraticalCook.getContentPane().add(lblSenha);
+		
+		txtId = new JTextField();
+		txtId.setColumns(10);
+		txtId.setBounds(150, 162, 202, 20);
+		frmPraticalCook.getContentPane().add(txtId);
+		
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				p = dao.consultarPerfilComun(Integer.parseInt(txtConsultar.getText()));
+				if(p != null) {
+					txtId.setText(" "+p.getidPerfil());
+					txtNome.setText(p.getNome());
+					txtSenha.setText(p.getSenha());
+					txtEmail.setText(p.getEmail());
+					txtEndereco.setText(p.getEndereco());
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "ID incorreto digite novamente!!");
+				}
+			}
+		});
 
+		btnBuscar.setBounds(409, 421, 89, 23);
+		frmPraticalCook.getContentPane().add(btnBuscar);
+		
+		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dao.excluirPerfil(Integer.parseInt(txtId.getText()));
+			}
+		});
+		btnExcluir.setBounds(247, 421, 89, 23);
+		frmPraticalCook.getContentPane().add(btnExcluir);
+		
+		JLabel Consultar = new JLabel("Consultar :");
+		Consultar.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		Consultar.setBounds(33, 111, 135, 14);
+		frmPraticalCook.getContentPane().add(Consultar);
+		
+		txtConsultar = new JTextField();
+		txtConsultar.setColumns(10);
+		txtConsultar.setBounds(150, 108, 202, 20);
+		frmPraticalCook.getContentPane().add(txtConsultar);
+		
+		JLabel lblNewLabel = new JLabel("Cadastro de usu\u00E1rio");
+		lblNewLabel.setFont(new Font("Impact", Font.PLAIN, 24));
+		lblNewLabel.setBounds(274, 39, 279, 28);
+		frmPraticalCook.getContentPane().add(lblNewLabel);
+	}
+	
+	public void limpar() {
+		txtNome.setText("");
+		txtEmail.setText("");
+		txtEndereco.setText("");
+		txtSenha.setText("");
+		txtId.setText("");
+	}
 }

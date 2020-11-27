@@ -3,22 +3,21 @@ package main;
 public class Perfil {
 	private int idPerfil;
 	private String nome;
-	private String sobrenome;
 	private String email;
 	private String senha;
-	private String cpf;
+	private String endereco;
 	
 	public Perfil() {
 		super();
 	}
 	
-	public Perfil(int idPerfil, String nome, String email, String senha, String cpf) {
+	public Perfil(int idPerfil, String nome, String email, String senha, String endereco) {
 		super();
 		this.idPerfil = idPerfil;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
-		this.cpf = cpf;
+		this.endereco = endereco;
 	}
 
 		
@@ -54,19 +53,13 @@ public class Perfil {
 		this.senha = senha;
 	}
 
-	public String getCpf() {
-		return cpf;
+	public String getEndereco() {
+		return endereco;
 	}
 
-	public void setCpf(String endereco) {
-		this.cpf = cpf;
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
-	public void setSobrenome(String text) {
-		this.sobrenome = sobrenome;
-		
-	}
-	
-	
 	
 }

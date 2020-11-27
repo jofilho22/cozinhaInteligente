@@ -309,22 +309,35 @@ public class PCookDAO {
 	 * @param p - Perfil que vai ser procurado
 	 * @return - Perfil que foi encontrado
 	 */
-	public Perfil consultarPerfilComun(Perfil p) {
+	public Perfil consultarPerfilComun(int idPerfil) {
+		Perfil p = new Perfil();
 		sql = "select * from perfil where idPerfil=?";
 		try {
 			conexao.getConnection();
 			conexao.st = conexao.con.prepareStatement(sql);
-			conexao.st.setInt(1, p.getidPerfil());
-			conexao.st.executeUpdate();
+			conexao.st.setInt(1, idPerfil);
+			conexao.rs = conexao.st.executeQuery();
+			if(conexao.rs.next()) {
+				p.setidPerfil(conexao.rs.getInt(1));
+				p.setNome(conexao.rs.getString(2));
+				p.setEmail(conexao.rs.getString(3));
+				p.setSenha(conexao.rs.getString(4));
+				p.setEndereco(conexao.rs.getString(5));
+			}
+			else {
+				p = null;
+			}
+
+			}
+			catch(SQLException erro){
+				p = null;
+			}
+			finally{
+				conexao.close();
+			}
+			return p;
 		}
-		catch(SQLException erro) {
-			System.out.println("Problema :"+erro+"");
-		}
-		finally {
-			conexao.close();
-		}
-		return p;
-	}
+
 	
 	/**
 	 * Edita o perfil desejado pelo usuário
@@ -351,4 +364,20 @@ public class PCookDAO {
 		}
 	}
 	
+	public void excluirPerfil(int idPerfil) {
+		sql = "delete from perfil where idPerfil=?";
+		try {
+			conexao.getConnection();
+			conexao.st = conexao.con.prepareStatement(sql);
+			conexao.st.setInt(1, idPerfil);
+			conexao.st.executeUpdate();
+			JOptionPane.showMessageDialog(null, "Cadastro excluido com sucesso!!");
+		}
+		catch(SQLException erro) {
+			System.out.println("Problema :"+erro+"");
+		}
+		finally {
+			conexao.close();
+		}
+	}
 }

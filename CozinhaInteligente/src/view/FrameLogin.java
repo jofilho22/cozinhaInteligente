@@ -106,7 +106,7 @@ public class FrameLogin extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 				if(txtSenha.getText().equals("Senha")) {
-					txtSenha.setEchoChar('‚óè');
+					txtSenha.setEchoChar('‚ó?');
 					txtSenha.setText("");	
 				}
 				else {

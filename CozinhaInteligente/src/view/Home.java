@@ -21,6 +21,11 @@ public class Home {
 
 	private JFrame frmMenu;
 	private JTextField Filtragem;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
 
 	/**
 	 * Launch the application.
@@ -77,54 +82,66 @@ public class Home {
 		
 		JLabel lblFiltragemReceitas = new JLabel("Filtragem de receitas");
 		lblFiltragemReceitas.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblFiltragemReceitas.setBounds(310, 52, 148, 14);
+		lblFiltragemReceitas.setBounds(297, 11, 148, 14);
 		frmMenu.getContentPane().add(lblFiltragemReceitas);
 		
 		Filtragem = new JTextField();
-		Filtragem.setBounds(180, 92, 391, 20);
+		Filtragem.setBounds(272, 162, 198, 20);
 		frmMenu.getContentPane().add(Filtragem);
 		Filtragem.setColumns(10);
 		
 		JButton btnFiltrar = new JButton("Procurar");
-		btnFiltrar.setBounds(331, 200, 89, 23);
+		btnFiltrar.setBounds(326, 404, 89, 23);
 		frmMenu.getContentPane().add(btnFiltrar);
 		
-		JLabel lb1 = new JLabel("Para filtrar por mais de um ingrediente separe-os com ponto e v\u00EDrgula");
-		lb1.setBounds(157, 141, 428, 14);
-		frmMenu.getContentPane().add(lb1);
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(272, 207, 198, 20);
+		frmMenu.getContentPane().add(textField);
 		
-		JLabel lb2 = new JLabel("Exemplo: Ingrediente01; Ingrediente02.");
-		lb2.setBounds(201, 155, 257, 14);
-		frmMenu.getContentPane().add(lb2);
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(272, 254, 198, 20);
+		frmMenu.getContentPane().add(textField_1);
 		
-		JLabel lbMenu = new JLabel("Menu");
-		lbMenu.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lbMenu.setBounds(359, 280, 46, 14);
-		frmMenu.getContentPane().add(lbMenu);
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(272, 305, 198, 20);
+		frmMenu.getContentPane().add(textField_2);
 		
-		JButton btComidaBrasileira = new JButton("Brasileira");
-		btComidaBrasileira.setBounds(180, 320, 89, 40);
-		frmMenu.getContentPane().add(btComidaBrasileira);
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(272, 124, 198, 20);
+		frmMenu.getContentPane().add(textField_3);
 		
-		JButton btnComidaItaliana = new JButton("Italiana");
-		btnComidaItaliana.setBounds(331, 320, 89, 40);
-		frmMenu.getContentPane().add(btnComidaItaliana);
+		JLabel lbIngrediente1 = new JLabel(" Ingrediente :");
+		lbIngrediente1.setBounds(144, 127, 89, 14);
+		frmMenu.getContentPane().add(lbIngrediente1);
 		
-		JButton btnComidaItalaiana = new JButton("\u00C1rabe");
-		btnComidaItalaiana.setBounds(482, 320, 89, 40);
-		frmMenu.getContentPane().add(btnComidaItalaiana);
+		JLabel lbIngrediente2 = new JLabel(" Ingrediente :");
+		lbIngrediente2.setBounds(144, 168, 89, 14);
+		frmMenu.getContentPane().add(lbIngrediente2);
 		
-		JButton btnSobremesa = new JButton("Sobremesa");
-		btnSobremesa.setBounds(180, 359, 89, 40);
-		frmMenu.getContentPane().add(btnSobremesa);
+		JLabel lbIngrediente3 = new JLabel(" Ingrediente :");
+		lbIngrediente3.setBounds(144, 210, 89, 14);
+		frmMenu.getContentPane().add(lbIngrediente3);
 		
-		JButton btnDieta = new JButton("Dieta");
-		btnDieta.setBounds(331, 359, 89, 40);
-		frmMenu.getContentPane().add(btnDieta);
+		JLabel lbIngrediente4 = new JLabel(" Ingrediente :");
+		lbIngrediente4.setBounds(144, 257, 89, 14);
+		frmMenu.getContentPane().add(lbIngrediente4);
 		
-		JButton btnComidaVegana = new JButton("Vegana");
-		btnComidaVegana.setBounds(482, 359, 89, 40);
-		frmMenu.getContentPane().add(btnComidaVegana);
+		JLabel lbIngrediente6 = new JLabel(" Ingrediente :");
+		lbIngrediente6.setBounds(144, 308, 89, 14);
+		frmMenu.getContentPane().add(lbIngrediente6);
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(272, 354, 198, 20);
+		frmMenu.getContentPane().add(textField_4);
+		
+		JLabel lbIngrediente6_1 = new JLabel(" Ingrediente :");
+		lbIngrediente6_1.setBounds(144, 357, 89, 14);
+		frmMenu.getContentPane().add(lbIngrediente6_1);
 	}
 
 }
